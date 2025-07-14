@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Clock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="clock-side">
+        <div class="clock-container">
+            <div class="connecting-line line-1"></div>
+            <div class="connecting-line line-2"></div>
+            <div class="connecting-line line-3"></div>
+
+        
+            <div class="time-section day-section">
+                <div class="time-label">Day</div>
+                <span id="day">TUE</span>
+                <div class="moving-dot" id="dayDot"></div>
+            </div>
+
+            <div class="time-section month-section">
+                <div class="time-label">Month</div>
+                <span id="month">JUL</span>
+                <div class="moving-dot" id="monthDot"></div>
+            </div>
+
+            <div class="time-section date-section">
+                <div class="time-label">Date</div>
+                <span id="date">15</span>
+                <div class="moving-dot" id="dateDot"></div>
+            </div>
+
+            <div class="time-section hour-section">
+                <div class="time-label">Hour</div>
+                <span id="hour">01</span>
+                <div class="moving-dot" id="hourDot"></div>
+            </div>
+
+            <div class="time-section minute-section">
+                <div class="time-label">Minute</div>
+                <span id="minute">24</span>
+                <div class="moving-dot" id="minuteDot"></div>
+            </div>
+
+            <div class="time-section second-section">
+                <div class="time-label">Second</div>
+                <span id="second">32</span>
+                <div class="moving-dot" id="secondDot"></div>
+            </div>
+
+            <div class="time-section year-section">
+                <div class="time-label">Year</div>
+                <span id="year">2025</span>
+                <div class="moving-dot" id="yearDot"></div>
+            </div>
+
+        
+            <div class="center-display">
+                <div class="date-time-display">
+                    <div id="currentDateTime">TUE JUL 15 01:24:32 2025</div>
+                </div>
+                <div class="time-left">
+                    <div id="timeLeft">Time left: 49y 181d 22h 35m 27s</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-side">
+        <div class="greeting-section">
+            <div class="greeting-text" id="greeting">Good Night</div>
+            <div class="user-name" id="userName">Working late tonight?</div>
+            <div class="current-date" id="currentDate">Today is Tuesday, July 15, 2025</div>
+        </div>
+
+        
+        <div class="quick-actions">
+            <div class="action-item" onclick="window.open('https://google.com', '_blank')">
+                <div class="action-icon">🔍</div>
+                <div class="action-label">Search</div>
+            </div>
+            <div class="action-item" onclick="window.open('https://gmail.com', '_blank')">
+                <div class="action-icon">📧</div>
+                <div class="action-label">Mail</div>
+            </div>
+            <div class="action-item" onclick="window.open('https://calendar.google.com', '_blank')">
+                <div class="action-icon">📅</div>
+                <div class="action-label">Calendar</div>
+            </div>
+            <div class="action-item" onclick="window.open('https://news.google.com', '_blank')">
+                <div class="action-icon">📰</div>
+                <div class="action-label">News</div>
+            </div>
+        </div>
+
+        
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search the web or type a URL...">
+                <button id="searchButton">🔍</button>
+            </div>
+        </div>
+
+        
+        <div class="bottom-info">
+            <div class="weather-widget" id="weatherWidget">
+                <div class="weather-icon">🌤️</div>
+                <div class="weather-temp">22°C</div>
+                <div class="weather-desc">Partly cloudy</div>
+            </div>
+            
+            <div class="quote-widget" id="quoteWidget">
+                <div class="quote-text">"Yesterday is history, tomorrow is a mystery, today is a gift."</div>
+                <div class="quote-author">- Eleanor Roosevelt</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

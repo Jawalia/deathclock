@@ -1,0 +1,475 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f0f23);
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* Left side - Clock */
+.clock-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+}
+
+/* Right side - All other elements */
+.right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-right: 50px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 20px;
+}
+
+/* Greeting Section */
+.greeting-section {
+    text-align: left;
+    width: 100%;
+}
+
+.greeting-text {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    background: linear-gradient(45deg, #4a9eff, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+}
+
+.user-name {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+.current-date {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: rgba(30, 30, 50, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(100, 150, 200, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 60px;
+}
+
+.action-item:hover {
+    background: rgba(50, 50, 70, 0.8);
+    border-color: #4a9eff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 158, 255, 0.2);
+}
+
+.action-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.action-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Search Bar */
+.search-container {
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(30, 30, 50, 0.8);
+    border-radius: 25px;
+    border: 2px solid rgba(100, 150, 200, 0.3);
+    padding: 5px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-bar:focus-within {
+    border-color: #4a9eff;
+    box-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+}
+
+#searchInput {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    width: 100%;
+    outline: none;
+    font-family: 'Courier New', monospace;
+}
+
+#searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#searchButton {
+    background: linear-gradient(45deg, #4a9eff, #00d4ff);
+    border: none;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+#searchButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(74, 158, 255, 0.5);
+}
+
+/* Weather and Quote */
+.bottom-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.weather-widget, .quote-widget {
+    background: rgba(30, 30, 50, 0.6);
+    border-radius: 15px;
+    padding: 15px 20px;
+    border: 1px solid rgba(100, 150, 200, 0.3);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    max-width: 500px;
+}
+
+.weather-widget {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-icon {
+    font-size: 24px;
+}
+
+.weather-temp {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4a9eff;
+}
+
+.weather-desc {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.quote-widget {
+    text-align: left;
+}
+
+.quote-text {
+    font-size: 14px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 5px;
+}
+
+.quote-author {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Clock Container */
+.clock-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20, 20, 40, 0.8), rgba(10, 10, 20, 0.9));
+    border: 3px solid rgba(100, 100, 150, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.time-section {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid rgba(100, 150, 200, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    background: rgba(30, 30, 50, 0.6);
+}
+
+.time-section::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #4a9eff;
+    border-radius: 50%;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #4a9eff;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.day-section {
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.month-section {
+    top: 120px;
+    right: 70px;
+}
+
+.date-section {
+    bottom: 120px;
+    right: 70px;
+}
+
+.hour-section {
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.minute-section {
+    bottom: 120px;
+    left: 70px;
+}
+
+.second-section {
+    top: 120px;
+    left: 70px;
+}
+
+.year-section {
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+
+.center-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.date-time-display {
+    background: rgba(70, 130, 200, 0.2);
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(70, 130, 200, 0.4);
+    margin-bottom: 15px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px rgba(70, 130, 200, 0.1);
+}
+
+.time-left {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+    margin-top: 8px;
+}
+
+.moving-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #4a9eff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #4a9eff;
+    transition: transform 0.1s ease;
+}
+
+.time-label {
+    position: absolute;
+    top: -25px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.connecting-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(70, 130, 200, 0.3), transparent);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.line-1 { 
+    width: 200px; 
+    top: 20%; 
+    left: 20%; 
+    transform: rotate(30deg); 
+}
+
+.line-2 { 
+    width: 150px; 
+    top: 70%; 
+    right: 15%; 
+    transform: rotate(-45deg); 
+}
+
+.line-3 { 
+    width: 180px; 
+    bottom: 20%; 
+    left: 15%; 
+    transform: rotate(60deg); 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .clock-side {
+        padding-left: 0;
+        margin-bottom: 20px;
+    }
+    
+    .right-side {
+        padding-right: 0;
+        gap: 20px;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .greeting-text {
+        font-size: 24px;
+    }
+    
+    .quick-actions {
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .action-item {
+        padding: 10px;
+        min-width: 50px;
+    }
+    
+    .action-icon {
+        font-size: 20px;
+    }
+    
+    .action-label {
+        font-size: 10px;
+    }
+    
+    .clock-container {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .time-section {
+        width: 50px;
+        height: 50px;
+        font-size: 10px;
+    }
+    
+    .day-section {
+        top: 30px;
+    }
+    
+    .month-section {
+        top: 80px;
+        right: 50px;
+    }
+    
+    .date-section {
+        bottom: 80px;
+        right: 50px;
+    }
+    
+    .hour-section {
+        bottom: 30px;
+    }
+    
+    .minute-section {
+        bottom: 80px;
+        left: 50px;
+    }
+    
+    .second-section {
+        top: 80px;
+        left: 50px;
+    }
+    
+    .year-section {
+        right: 10px;
+    }
+    
+    #searchInput {
+        font-size: 14px;
+    }
+    
+    .date-time-display {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+    
+    .time-left {
+        font-size: 16px;
+    }
+    
+    .quote-widget {
+        max-width: 300px;
+    }
+}
